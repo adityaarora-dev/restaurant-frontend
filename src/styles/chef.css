@@ -1,0 +1,574 @@
+/* ============================================================
+   src/styles/chef.css
+   Professional kitchen display — muted navy/slate palette
+   Calm, readable, low-distraction for real kitchen use
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+:root {
+  /* Background layers — deep navy, not pitch black */
+  --bg: #0e1117;
+  --bg-2: #141820;
+  --bg-3: #191e2a;
+  --surface: #1c2130;
+  --card: #212840;
+  --card-hover: #252d48;
+  --border: rgba(148, 163, 184, 0.09);
+  --border-2: rgba(148, 163, 184, 0.16);
+
+  /* Text */
+  --text: #dde2f0;
+  --text-soft: #8b93ae;
+  --text-muted: #4f576e;
+
+  /* Status colors — desaturated, professional */
+  --fire: #e8993a;
+  --fire-soft: rgba(232, 153, 58, 0.08);
+  --fire-border: rgba(232, 153, 58, 0.18);
+
+  --green: #3db87a;
+  --green-soft: rgba(61, 184, 122, 0.08);
+  --green-border: rgba(61, 184, 122, 0.18);
+
+  --blue: #5b9bd5;
+  --blue-soft: rgba(91, 155, 213, 0.08);
+  --blue-border: rgba(91, 155, 213, 0.16);
+
+  --gold: #d4a847;
+  --gold-soft: rgba(212, 168, 71, 0.08);
+  --gold-border: rgba(212, 168, 71, 0.18);
+
+  --urgent: #c95f5f;
+  --urgent-soft: rgba(201, 95, 95, 0.07);
+  --urgent-border: rgba(201, 95, 95, 0.22);
+
+  /* Gradients */
+  --grad-fire: linear-gradient(135deg, #c97c28 0%, #e8993a 100%);
+  --grad-green: linear-gradient(135deg, #2a9962 0%, #3db87a 100%);
+
+  --font: "Plus Jakarta Sans", system-ui, sans-serif;
+  --radius: 10px;
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* ── RESET ────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* ── SHELL ────────────────────────────────────────────────── */
+.chef-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── HEADER ───────────────────────────────────────────────── */
+.chef-header {
+  background: var(--bg-2);
+  border-bottom: 1px solid var(--border-2);
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chef-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chef-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fire);
+}
+
+.chef-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.chef-sub {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+/* Live pill — subtle, no animation frenzy */
+.chef-pulse {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--green-soft);
+  border: 1px solid var(--green-border);
+  padding: 5px 14px;
+  border-radius: 999px;
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  /* slow, calm pulse — not distracting */
+  animation: calmPulse 3s ease-in-out infinite;
+}
+
+@keyframes calmPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.pulse-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--green);
+  letter-spacing: 0.04em;
+}
+
+/* ── STATS ROW ────────────────────────────────────────────── */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  padding: 18px 28px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-2);
+}
+
+@media (max-width: 900px) {
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  /* no hover lift — kitchen staff don't need hover effects */
+  transition: border-color 0.2s;
+}
+
+.stat-card--fire {
+  border-left: 3px solid var(--fire);
+}
+.stat-card--green {
+  border-left: 3px solid var(--green);
+}
+.stat-card--blue {
+  border-left: 3px solid var(--blue);
+}
+.stat-card--gold {
+  border-left: 3px solid var(--gold);
+}
+
+.stat-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.stat-icon--fire {
+  background: var(--fire-soft);
+  color: var(--fire);
+}
+.stat-icon--green {
+  background: var(--green-soft);
+  color: var(--green);
+}
+.stat-icon--blue {
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+.stat-icon--gold {
+  background: var(--gold-soft);
+  color: var(--gold);
+}
+
+.stat-val {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.stat-lbl {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── KANBAN BOARD ─────────────────────────────────────────── */
+.chef-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding: 20px 28px 32px;
+  flex: 1;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .chef-board {
+    grid-template-columns: 1fr;
+    padding: 14px;
+  }
+}
+
+/* ── COLUMN ───────────────────────────────────────────────── */
+.chef-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.col-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 9px 14px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+}
+
+.col-count {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-soft);
+}
+
+.col-header--fire {
+  background: var(--fire-soft);
+  color: var(--fire);
+  border-color: var(--fire-border);
+}
+.col-header--green {
+  background: var(--green-soft);
+  color: var(--green);
+  border-color: var(--green-border);
+}
+.col-header--muted {
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+
+.btn-clear {
+  margin-left: 8px;
+  font-family: var(--font);
+  font-size: 10px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-2);
+  color: var(--text-muted);
+  border-radius: 5px;
+  padding: 2px 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-clear:hover {
+  background: var(--urgent-soft);
+  color: var(--urgent);
+  border-color: var(--urgent-border);
+}
+
+.col-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.empty-state {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 24px 0;
+  font-style: italic;
+}
+
+/* ── ORDER CARD ───────────────────────────────────────────── */
+.order-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 3px solid transparent;
+  border-radius: var(--radius);
+  padding: 13px 15px;
+  box-shadow: var(--shadow);
+  /* subtle fade-in only — no spring bounce */
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+
+.order-card:hover {
+  background: var(--card-hover);
+  border-color: var(--border-2);
+}
+
+/* cooking = amber left bar */
+.order-card:not(.order-card--ready):not(.order-card--done) {
+  border-left-color: var(--fire);
+}
+
+/* urgent = red border, very subtle bg tint, NO animation */
+.order-card--urgent {
+  border-color: var(--urgent-border);
+  border-left-color: var(--urgent);
+  background: color-mix(in srgb, var(--card) 94%, #c95f5f 6%);
+}
+
+/* ready = green left bar */
+.order-card--ready {
+  border-left-color: var(--green);
+  border-color: var(--green-border);
+  background: color-mix(in srgb, var(--card) 95%, #3db87a 5%);
+}
+
+/* done = greyed out */
+.order-card--done {
+  opacity: 0.35;
+  border-left-color: var(--text-muted);
+  filter: grayscale(0.5);
+}
+
+/* Card header */
+.ocard-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.ocard-table {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-2);
+  padding: 3px 11px;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+}
+
+.ocard-head-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Urgent — static badge, no blinking */
+.ocard-urgent-badge {
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  color: var(--urgent);
+  background: var(--urgent-soft);
+  border: 1px solid var(--urgent-border);
+  border-radius: 999px;
+  padding: 2px 8px;
+  text-transform: uppercase;
+}
+
+/* Ready — static badge */
+.ocard-ready-badge {
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  color: var(--green);
+  background: var(--green-soft);
+  border: 1px solid var(--green-border);
+  border-radius: 999px;
+  padding: 2px 8px;
+  text-transform: uppercase;
+}
+
+.ocard-time {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10.5px;
+  color: var(--text-muted);
+}
+
+/* Items */
+.ocard-items {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 11px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid var(--border);
+}
+
+.ocard-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12.5px;
+  color: rgba(221, 226, 240, 0.75);
+}
+
+.ocard-item-name {
+  flex: 1;
+}
+
+.ocard-item-qty {
+  font-weight: 700;
+  font-size: 11px;
+  color: var(--fire);
+  background: var(--fire-soft);
+  border: 1px solid var(--fire-border);
+  border-radius: 5px;
+  padding: 1px 6px;
+  margin-left: 8px;
+}
+
+/* Footer */
+.ocard-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ocard-total {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.ocard-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.ocard-btn {
+  font-family: var(--font);
+  font-size: 11.5px;
+  font-weight: 700;
+  border: none;
+  border-radius: 7px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  letter-spacing: 0.01em;
+}
+.ocard-btn:hover {
+  opacity: 0.82;
+}
+.ocard-btn:active {
+  opacity: 0.68;
+}
+
+.ocard-btn--ready {
+  background: var(--grad-fire);
+  color: #fff8f0;
+  box-shadow: 0 2px 8px rgba(201, 124, 40, 0.28);
+}
+
+.ocard-btn--done {
+  background: var(--grad-green);
+  color: #f0fff8;
+  box-shadow: 0 2px 8px rgba(42, 153, 98, 0.28);
+}
+
+/* ── FOOTER ───────────────────────────────────────────────── */
+.chef-footer {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 12px 28px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-2);
+  letter-spacing: 0.02em;
+}
+
+.footer-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  opacity: 0.7;
+}
+
+/* ── SCROLLBAR ────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.12);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.22);
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .chef-board {
+    padding: 16px 20px 24px;
+    gap: 14px;
+  }
+  .stats-row {
+    padding: 14px 20px;
+  }
+  .chef-header {
+    padding: 14px 20px;
+  }
+}

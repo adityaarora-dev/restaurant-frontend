@@ -1,0 +1,11 @@
+/* src/styles/global.css — minimal reset only, all design is in menu.css / chef.css */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100vh;
+}
