@@ -165,13 +165,24 @@ After the server starts, you can access the following routes.
 
 ```
 http://localhost:5173/?table=10
+
 ```
+<img width="1903" height="963" alt="image" src="https://github.com/user-attachments/assets/d250e18a-4648-4c4a-bccd-15fe7a1425f2" />
+<img width="1897" height="967" alt="image" src="https://github.com/user-attachments/assets/2dbc4916-5aa1-4985-831a-32c82f1a4c0a" />
+<img width="1901" height="965" alt="image" src="https://github.com/user-attachments/assets/d9dafce5-5082-4219-a138-fc9c42a62e57" />
+<img width="1906" height="978" alt="image" src="https://github.com/user-attachments/assets/5ab9639e-5660-44fd-be52-d0b51110bf07" />
+
+
 
 ### Chef Dashboard
 
 ```
 http://localhost:5173/chef
 ```
+<img width="1911" height="974" alt="image" src="https://github.com/user-attachments/assets/255caf02-3fed-42c4-8950-75c9e1d27ea7" />
+<img width="1908" height="971" alt="image" src="https://github.com/user-attachments/assets/9d93bac9-24c4-4939-9144-643c1bb93190" />
+<img width="1903" height="960" alt="image" src="https://github.com/user-attachments/assets/b73ee0f3-2e05-4e57-81d3-700c6d2ef98b" />
+
 
 ---
 
