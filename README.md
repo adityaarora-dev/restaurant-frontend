@@ -1,9 +1,9 @@
 # Restaurant Frontend – React + Vite
 
 This project is a **React + Vite frontend application** designed for a restaurant system.
-It provides an interface for **customers to view menus based on their table number** and for **chefs to manage orders using a dashboard**.
+It allows customers to **view the menu based on their table number** and provides a **Chef Dashboard** for managing restaurant operations.
 
-The application is built using **React for UI development** and **Vite for fast build and development performance**.
+React is used for building the user interface, while **Vite provides fast development and build performance**.
 
 ---
 
@@ -11,10 +11,10 @@ The application is built using **React for UI development** and **Vite for fast 
 
 * Table-based menu access
 * Chef dashboard interface
-* Fast development using Vite
+* Fast development with Vite
 * Modular React component structure
-* Separate styling for pages
-* Clean project architecture
+* Organized project architecture
+* Separate styling for different pages
 
 ---
 
@@ -28,31 +28,9 @@ The application is built using **React for UI development** and **Vite for fast 
 
 ---
 
-# 🌐 Application Routes
-
-After running the project locally, the following routes can be accessed:
-
-### Customer Menu Page
-
-Displays the menu for a specific table.
-
-```text
-http://localhost:5173/?table=10
-```
-
-### Chef Dashboard
-
-Interface for chefs to manage menu/orders.
-
-```text
-http://localhost:5173/chef
-```
-
----
-
 # 📂 Project Structure
 
-```text
+```
 react-frontend
 │
 ├── public
@@ -87,67 +65,129 @@ react-frontend
 
 ---
 
-# ⚙️ Installation
+# ⚙️ Requirements
 
-Clone the repository:
+Before running the project, make sure the following tools are installed on your system.
+
+### Check Node.js
+
+Run the following command in the terminal:
 
 ```bash
-git clone https://github.com/yourusername/react-frontend.git
+node -v
 ```
 
-Navigate into the project directory:
+If Node.js is not installed, download and install it from:
+
+https://nodejs.org
+
+After installation, run the command again to verify it works.
+
+---
+
+### Check npm
+
+Run:
 
 ```bash
-cd react-frontend
+npm -v
 ```
 
-Install dependencies:
+If npm is not installed, reinstall the **Node.js LTS version**, since npm comes bundled with Node.js.
+
+---
+
+### Check Git
+
+Run:
 
 ```bash
-npm install
+git --version
+```
+
+If Git is not installed, download and install it from:
+
+https://git-scm.com/downloads
+
+Then verify again using the same command.
+
+---
+
+# 📥 Clone the Repository
+
+Clone the project from GitHub:
+
+```
+git clone https://github.com/adityaarora-dev/restaurant-frontend
+```
+
+Move into the project directory:
+
+```
+cd restaurant-frontend
 ```
 
 ---
 
-# ▶️ Running the Project
+# 📦 Install Dependencies
+
+Install all project dependencies:
+
+```
+npm install
+```
+
+This will automatically create the **node_modules** folder.
+
+---
+
+# ▶️ Run the Project
 
 Start the development server:
 
-```bash
+```
 npm run dev
 ```
 
 The application will run at:
 
-```text
+```
 http://localhost:5173
 ```
 
 ---
 
-# 📦 Build for Production
+# 🌐 Application Routes
+
+After the server starts, you can access the following routes.
+
+### Customer Menu Page
+
+```
+http://localhost:5173/?table=10
+```
+
+### Chef Dashboard
+
+```
+http://localhost:5173/chef
+```
+
+---
+
+# ⚙️ Optional (Production Build)
 
 To create a production build:
 
-```bash
+```
 npm run build
 ```
 
 To preview the production build:
 
-```bash
+```
 npm run preview
 ```
-
----
-
-# 📌 Future Improvements
-
-* Backend API integration
-* Real-time order updates
-* Authentication system
-* Database connectivity
-* Deployment to cloud platforms
 
 ---
 
